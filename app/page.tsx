@@ -8,11 +8,17 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <Nav />
-      <Hero />
-      <WhySyntropic />
-      <CreateAgent />
-      <Architecture />
+      <main id="main-content">
+        <Hero />
+        <hr className="section-divider" />
+        <WhySyntropic />
+        <hr className="section-divider" />
+        <CreateAgent />
+        <hr className="section-divider" />
+        <Architecture />
+      </main>
       <Footer />
     </>
   );

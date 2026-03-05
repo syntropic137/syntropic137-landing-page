@@ -7,6 +7,7 @@ export default function CreateAgent() {
       <h2 className="section-heading">
         Create an <span className="accent">Agent</span>
       </h2>
+      <p className="section-subtitle">Get started in seconds</p>
       <FadeIn>
         <CodeEditor />
       </FadeIn>
