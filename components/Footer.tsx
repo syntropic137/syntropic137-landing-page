@@ -26,7 +26,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="container footer-bottom">
-        <span>&copy; 2026 Syntropic137</span>
+        <span>&copy; {new Date().getFullYear()} Syntropic137</span>
         <span className="badge"><Scale size={12} /> MIT License</span>
       </div>
     </footer>
