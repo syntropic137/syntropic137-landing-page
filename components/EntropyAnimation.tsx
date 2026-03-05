@@ -30,6 +30,7 @@ export default function EntropyAnimation() {
     // How long the settling takes (ms)
     const settleDuration = 6000;
     let startTime: number | null = null;
+    let settledTime: number | null = null;
 
     const resize = () => {
       const rect = canvas.parentElement!.getBoundingClientRect();
@@ -131,8 +132,10 @@ export default function EntropyAnimation() {
         ctx.fill();
       }
 
-      // After settling, add very subtle breathing drift
+      // After settling, add very subtle breathing drift then stop
       if (progress >= 1) {
+        if (!settledTime) settledTime = timestamp;
+        if (timestamp - settledTime > 3000) return; // stop loop, save CPU
         for (const p of particles) {
           p.vx += (Math.random() - 0.5) * 0.02;
           p.vy += (Math.random() - 0.5) * 0.02;

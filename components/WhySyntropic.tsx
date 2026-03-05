@@ -21,20 +21,23 @@ const cards = [
 
 export default function WhySyntropic() {
   return (
-    <section id="why" className="section container">
-      <h2 className="section-heading">
-        Why <span className="accent">Syntropic137?</span>
-      </h2>
-      <div className="cards-grid">
-        {cards.map((card) => (
-          <FadeIn key={card.title}>
-            <div className="card glass">
-              <card.icon className="card-icon" size={40} strokeWidth={1.5} />
-              <h3 className="card-title">{card.title}</h3>
-              <p className="card-desc">{card.desc}</p>
-            </div>
-          </FadeIn>
-        ))}
+    <section id="why" className="section section-alt">
+      <div className="container">
+        <h2 className="section-heading">
+          Why <span className="accent">Syntropic137?</span>
+        </h2>
+        <p className="section-subtitle">Three pillars of agentic engineering</p>
+        <div className="cards-grid">
+          {cards.map((card) => (
+            <FadeIn key={card.title}>
+              <div className="card glass">
+                <card.icon className="card-icon" size={40} strokeWidth={1.5} />
+                <h3 className="card-title">{card.title}</h3>
+                <p className="card-desc">{card.desc}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );

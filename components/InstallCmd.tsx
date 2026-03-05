@@ -14,12 +14,12 @@ export default function InstallCmd() {
   };
 
   return (
-    <div className="install-cmd">
+    <code className="install-cmd">
       <span className="install-prefix">$ </span>
       <span className="install-text">{command}</span>
       <button className="install-copy" onClick={handleCopy} aria-label="Copy command">
         {copied ? <Check size={14} /> : <Clipboard size={14} />}
       </button>
-    </div>
+    </code>
   );
 }
