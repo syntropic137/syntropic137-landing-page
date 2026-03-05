@@ -32,7 +32,6 @@ export default function Hero() {
           <video
             className="hero-video"
             autoPlay
-            loop
             muted
             playsInline
           >

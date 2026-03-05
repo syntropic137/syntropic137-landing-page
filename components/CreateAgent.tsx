@@ -1,3 +1,4 @@
+import FadeIn from "./FadeIn";
 import CodeEditor from "./CodeEditor";
 
 export default function CreateAgent() {
@@ -6,7 +7,9 @@ export default function CreateAgent() {
       <h2 className="section-heading">
         Create an <span className="accent">Agent</span>
       </h2>
-      <CodeEditor />
+      <FadeIn>
+        <CodeEditor />
+      </FadeIn>
     </section>
   );
 }
