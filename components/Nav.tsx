@@ -5,7 +5,6 @@ export default function Nav() {
     <nav className="nav">
       <div className="container nav-inner">
         <div className="nav-left">
-          <img src="/assets/logo_syntropic137.png" className="nav-logo" alt="Syntropic137" />
           <span className="nav-brand">Syntropic137</span>
           <span className="nav-tagline">Agentic Engineering</span>
         </div>
