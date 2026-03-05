@@ -13,7 +13,7 @@ export default function Hero() {
           </p>
           <p className="hero-longline">
             The future isn&apos;t human-in-the-loop agentic coding.<br />
-            It&apos;s orchestrated agentic engineering.
+            It&apos;s <span className="gradient-text">orchestrated agentic engineering.</span>
           </p>
           <InstallCmd />
           <div className="hero-ctas">

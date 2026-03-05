@@ -1,0 +1,140 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: static-site
+          path: out/
+          retention-days: 7
+
+  lighthouse:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: static-site
+          path: out/
+
+      - name: Serve static site
+        run: |
+          npx serve out -l 8080 &
+          sleep 3
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: http://localhost:8080/
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          configPath: .github/lighthouse/lighthouserc.json
+
+      - name: Format Lighthouse results
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const glob = require('@actions/glob');
+            const globber = await glob.create('.lighthouseci/lhr-*.json');
+            const files = await globber.glob();
+            if (files.length === 0) return;
+            const lhr = JSON.parse(fs.readFileSync(files[0], 'utf8'));
+            const scores = Object.entries(lhr.categories).map(([key, cat]) => {
+              const score = Math.round(cat.score * 100);
+              const emoji = score >= 90 ? '🟢' : score >= 50 ? '🟡' : '🔴';
+              return `| ${cat.title} | ${emoji} ${score} |`;
+            });
+            const body = [
+              '## Lighthouse Results',
+              '',
+              '| Category | Score |',
+              '|----------|-------|',
+              ...scores,
+              '',
+              `> Tested: ${lhr.finalUrl}`,
+            ].join('\n');
+
+            // Enforce minimum scores — fail CI if any category is below threshold
+            const thresholds = {
+              performance: 90,
+              accessibility: 90,
+              'best-practices': 85,
+              seo: 90,
+            };
+            const failures = [];
+            for (const [key, cat] of Object.entries(lhr.categories)) {
+              const score = Math.round(cat.score * 100);
+              const min = thresholds[key];
+              if (min && score < min) {
+                failures.push(`${cat.title}: ${score} (minimum: ${min})`);
+              }
+            }
+
+            const statusLine = failures.length > 0
+              ? `\n\n**CI will fail** — scores below threshold:\n${failures.map(f => `- ${f}`).join('\n')}`
+              : '\n\nAll scores meet minimum thresholds.';
+
+            const fullBody = body + statusLine;
+
+            // Write to job summary
+            await core.summary.addRaw(fullBody).write();
+
+            // Comment on PR if this is a pull request
+            if (context.payload.pull_request) {
+              const marker = '<!-- lighthouse-ci -->';
+              const { data: comments } = await github.rest.issues.listComments({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.pull_request.number,
+              });
+              const existing = comments.find(c => c.body.includes(marker));
+              const commentBody = `${marker}\n${fullBody}`;
+              if (existing) {
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: existing.id,
+                  body: commentBody,
+                });
+              } else {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.payload.pull_request.number,
+                  body: commentBody,
+                });
+              }
+            }
+
+            // Fail the step if any score is below threshold
+            if (failures.length > 0) {
+              core.setFailed(`Lighthouse scores below threshold:\n${failures.join('\n')}`);
+            }

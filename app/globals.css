@@ -318,6 +318,11 @@ img, video {
   gap: var(--space-md);
 }
 
+.hero-logo {
+  width: 64px;
+  height: 64px;
+}
+
 .hero h1 {
   font-size: var(--text-h1);
   font-weight: var(--weight-bold);
@@ -334,6 +339,42 @@ img, video {
   font-size: var(--text-body);
   color: var(--color-text-secondary);
   line-height: 1.6;
+}
+
+.gradient-text {
+  position: relative;
+  color: var(--color-text-secondary);
+  background: linear-gradient(
+    90deg,
+    var(--color-text-secondary) 0%,
+    var(--color-text-secondary) 20%,
+    #D4A040 30%,
+    #FFD866 36%,
+    #FFFFFF 40%,
+    #FFD866 44%,
+    #4D80FF 50%,
+    #8AB4FF 54%,
+    #FFFFFF 58%,
+    #8AB4FF 62%,
+    #4D80FF 68%,
+    var(--color-text-secondary) 80%,
+    var(--color-text-secondary) 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 8s ease-in-out infinite;
+  filter: drop-shadow(0 -4px 16px rgba(255, 216, 102, 0.35))
+          drop-shadow(0 -8px 30px rgba(77, 128, 255, 0.25))
+          drop-shadow(0 0 40px rgba(212, 160, 64, 0.15));
+  text-shadow: none;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 .hero-ctas {
