@@ -534,6 +534,7 @@ img, video {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: text-shimmer 7s ease-in-out infinite;
+  animation-delay: 2s;
 }
 
 @keyframes text-shimmer {
