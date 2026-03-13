@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 
 export default function FadeIn({ children }: { children: React.ReactNode }) {
