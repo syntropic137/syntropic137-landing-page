@@ -63,10 +63,17 @@ test.describe("Energy & Performance", () => {
     await page.waitForTimeout(35_000); // wait for all finite animations to complete (longest: 30s)
 
     // Check if any animations are still running
-    const runningAnimations = await page.evaluate(() => {
+    // border-orbit is intentionally infinite (transform:rotate is compositor-only, ~0 CPU)
+    const allowedInfinite = new Set(["border-orbit"]);
+    const runningAnimations = await page.evaluate((allowed) => {
       const all = document.getAnimations();
       return all
-        .filter((a) => a.playState === "running")
+        .filter((a) => {
+          if (a.playState !== "running") return false;
+          // @ts-expect-error -- CSSAnimation has animationName
+          const name = (a as CSSAnimation).animationName ?? "unknown";
+          return !allowed.includes(name);
+        })
         .map((a) => ({
           playState: a.playState,
           // @ts-expect-error -- CSSAnimation has animationName
@@ -74,7 +81,7 @@ test.describe("Energy & Performance", () => {
           // @ts-expect-error
           target: (a.effect as KeyframeEffect)?.target?.className ?? "unknown",
         }));
-    });
+    }, [...allowedInfinite]);
 
     console.log(`\n── Animation Report (at 65s) ──`);
     console.log(`  Running: ${runningAnimations.length}`);
