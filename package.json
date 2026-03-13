@@ -2,20 +2,26 @@
   "name": "syn137-landing-page",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:energy": "npx playwright test tests/energy.spec.ts",
+    "test": "npx playwright test"
   },
   "dependencies": {
-    "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.7.0",
-    "@types/react": "^19.0.0",
+    "@playwright/test": "^1.58.2",
     "@types/node": "^22.0.0",
-    "lucide-react": "^0.468.0"
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "lucide-react": "^0.468.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0"
   }
 }

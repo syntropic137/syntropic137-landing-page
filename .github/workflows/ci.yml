@@ -27,13 +27,14 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: static-site
-          path: out/
+          path: dist/
           retention-days: 7
 
   lighthouse:
     needs: build
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
@@ -41,11 +42,11 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: static-site
-          path: out/
+          path: dist/
 
       - name: Serve static site
         run: |
-          npx serve out -l 8080 &
+          npx serve dist -l 8080 &
           sleep 3
 
       - name: Run Lighthouse
@@ -62,7 +63,6 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const glob = require('@actions/glob');
             const globber = await glob.create('.lighthouseci/lhr-*.json');
             const files = await globber.glob();
             if (files.length === 0) return;

@@ -1,5 +1,3 @@
-"use client";
-
 import { type CSSProperties, type ReactNode } from "react";
 
 interface TextShimmerProps {

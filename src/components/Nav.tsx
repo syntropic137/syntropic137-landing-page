@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { Scale, Menu, X } from "lucide-react";
 

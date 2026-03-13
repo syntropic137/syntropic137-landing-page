@@ -1,11 +1,11 @@
-import Nav from "@/components/Nav";
-import Hero from "@/components/Hero";
-import WhySyntropic from "@/components/WhySyntropic";
-import CreateAgent from "@/components/CreateAgent";
-import Architecture from "@/components/Architecture";
-import Footer from "@/components/Footer";
+import Nav from "./components/Nav";
+import Hero from "./components/Hero";
+import WhySyntropic from "./components/WhySyntropic";
+import CreateAgent from "./components/CreateAgent";
+import Architecture from "./components/Architecture";
+import Footer from "./components/Footer";
 
-export default function Home() {
+export default function App() {
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to content</a>
