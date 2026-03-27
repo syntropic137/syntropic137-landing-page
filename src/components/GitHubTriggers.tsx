@@ -1,0 +1,71 @@
+import FadeIn from "./FadeIn";
+
+const triggerLines = [
+  { num: 1, content: <><span className="syn-punctuation">$ </span><span className="syn-function">syn triggers register</span> <span className="syn-property">--name</span> <span className="syn-string">"self-healing"</span> <span className="syn-punctuation">\</span></> },
+  { num: 2, content: <><span className="syn-punctuation">    </span><span className="syn-property">--event</span> <span className="syn-string">"check_run.completed"</span> <span className="syn-punctuation">\</span></> },
+  { num: 3, content: <><span className="syn-punctuation">    </span><span className="syn-property">--repository</span> <span className="syn-string">acme/api</span> <span className="syn-punctuation">\</span></> },
+  { num: 4, content: <><span className="syn-punctuation">    </span><span className="syn-property">--workflow</span> <span className="syn-string">fix-and-pr</span></> },
+  { num: 5, content: null },
+  { num: 6, content: <span className="syn-comment"># CI fails → webhook fires → Claude Code opens a fix PR</span> },
+  { num: 7, content: null },
+  { num: 8, content: <><span className="syn-punctuation">$ </span><span className="syn-function">syn triggers register</span> <span className="syn-property">--name</span> <span className="syn-string">"pr-review"</span> <span className="syn-punctuation">\</span></> },
+  { num: 9, content: <><span className="syn-punctuation">    </span><span className="syn-property">--event</span> <span className="syn-string">"pull_request.opened"</span> <span className="syn-punctuation">\</span></> },
+  { num: 10, content: <><span className="syn-punctuation">    </span><span className="syn-property">--repository</span> <span className="syn-string">acme/api</span> <span className="syn-punctuation">\</span></> },
+  { num: 11, content: <><span className="syn-punctuation">    </span><span className="syn-property">--workflow</span> <span className="syn-string">code-review</span></> },
+  { num: 12, content: null },
+  { num: 13, content: <span className="syn-comment"># PR opened → Claude Code reviews it in minutes</span> },
+];
+
+export default function GitHubTriggers() {
+  return (
+    <section id="triggers" className="section">
+      <div className="container">
+        <h2 className="section-heading">
+          <span className="accent">GitHub-Native</span> Triggers
+        </h2>
+        <p className="section-subtitle">
+          Webhook triggers kick off workflows automatically — developers stay out of the loop
+        </p>
+        <FadeIn>
+          <div className="code-editor glass">
+            <div className="code-titlebar">
+              <div className="code-dots">
+                <span className="dot dot-red" />
+                <span className="dot dot-yellow" />
+                <span className="dot dot-green" />
+              </div>
+              <span className="code-filename">terminal</span>
+            </div>
+            <div className="code-body">
+              <div className="code-line-numbers" aria-hidden="true">
+                {triggerLines.map((l) => (
+                  <span key={l.num}>{l.num}</span>
+                ))}
+              </div>
+              <pre style={{ margin: 0 }}><code>{triggerLines.map((l, i) => (
+                <span key={l.num}>{i > 0 && "\n"}{l.content ?? ""}</span>
+              ))}</code></pre>
+            </div>
+          </div>
+          <div className="triggers-examples">
+            <div className="trigger-card glass">
+              <span className="trigger-event">check_run.completed</span>
+              <span className="trigger-arrow">→</span>
+              <span className="trigger-action">Self-healing CI: auto-fix and open PR</span>
+            </div>
+            <div className="trigger-card glass">
+              <span className="trigger-event">pull_request.opened</span>
+              <span className="trigger-arrow">→</span>
+              <span className="trigger-action">Automated code review in minutes</span>
+            </div>
+            <div className="trigger-card glass">
+              <span className="trigger-event">issue_comment.created</span>
+              <span className="trigger-arrow">→</span>
+              <span className="trigger-action">Auto-respond to review comments</span>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}

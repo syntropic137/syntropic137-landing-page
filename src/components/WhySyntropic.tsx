@@ -1,40 +1,43 @@
-import { Brain, RefreshCw, Plug } from "lucide-react";
+import { RefreshCw, Database, GitPullRequest } from "lucide-react";
 import FadeIn from "./FadeIn";
 
 const cards = [
   {
-    icon: Brain,
-    title: "Persistent Memory",
-    desc: "Agents that remember context across sessions — no more cold starts.",
-  },
-  {
     icon: RefreshCw,
-    title: "Self-Improving Loops",
-    desc: "Built-in feedback cycles let agents refine their own behavior over time.",
+    title: "Repeatable Workflows",
+    href: "#how-it-works",
+    desc: <>Multi-phase pipelines built on the <strong>Claude Code command standard</strong>. Research, plan, implement, review — every workflow runs the same way, every time.</>,
   },
   {
-    icon: Plug,
-    title: "Plugin Ecosystem",
-    desc: "Connect any tool, API, or integration through a standard plugin interface.",
+    icon: Database,
+    title: "Immutable Event Store",
+    href: "#observability",
+    desc: <>Every state change is a permanent, queryable event. Domain events, observability telemetry, and conversation logs — nothing is ever lost. Data compounds with every run.</>,
+  },
+  {
+    icon: GitPullRequest,
+    title: "GitHub-Native Triggers",
+    href: "#triggers",
+    desc: <>Webhook triggers enable self-healing CI, auto-responses to review comments, and PR-driven workflows. Agents respond in minutes — developers stay out of the loop.</>,
   },
 ];
 
 export default function WhySyntropic() {
   return (
-    <section id="why" className="section section-alt">
+    <section id="features" className="section section-alt">
       <div className="container">
         <h2 className="section-heading">
           Why <span className="accent">Syntropic137?</span>
         </h2>
-        <p className="section-subtitle">Three pillars of agentic engineering</p>
+        <p className="section-subtitle">Built for production. Built to last.</p>
         <div className="cards-grid">
           {cards.map((card) => (
             <FadeIn key={card.title}>
-              <div className="card glass">
+              <a href={card.href} className="card glass card-link">
                 <card.icon className="card-icon" size={40} strokeWidth={1.5} />
                 <h3 className="card-title">{card.title}</h3>
                 <p className="card-desc">{card.desc}</p>
-              </div>
+              </a>
             </FadeIn>
           ))}
         </div>

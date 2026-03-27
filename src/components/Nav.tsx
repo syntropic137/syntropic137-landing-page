@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Scale, Menu, X } from "lucide-react";
+import { Menu, X, Github } from "lucide-react";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -12,10 +12,13 @@ export default function Nav() {
           <span className="nav-tagline">Agentic Engineering</span>
         </div>
         <div className="nav-right">
-          <a href="#why" className="nav-link">Docs</a>
-          <a href="#architecture" className="nav-link">Architecture</a>
-          <a href="https://github.com/Syntropic137" className="nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <span className="badge"><Scale size={12} /> MIT</span>
+          <a href="#features" className="nav-link">Features</a>
+          <a href="#how-it-works" className="nav-link">Workflows</a>
+          <a href="#observability" className="nav-link">Observability</a>
+          <a href="https://github.com/syntropic137/syntropic137" className="nav-github-btn" target="_blank" rel="noopener noreferrer">
+            <Github size={16} strokeWidth={2} />
+            <span>GitHub</span>
+          </a>
         </div>
         <button
           className="nav-toggle"
@@ -26,10 +29,13 @@ export default function Nav() {
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
         <div className={`nav-drawer${open ? " open" : ""}`}>
-          <a href="#why" className="nav-link" onClick={() => setOpen(false)}>Docs</a>
-          <a href="#architecture" className="nav-link" onClick={() => setOpen(false)}>Architecture</a>
-          <a href="https://github.com/Syntropic137" className="nav-link" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>GitHub</a>
-          <span className="badge"><Scale size={12} /> MIT</span>
+          <a href="#features" className="nav-link" onClick={() => setOpen(false)}>Features</a>
+          <a href="#how-it-works" className="nav-link" onClick={() => setOpen(false)}>Workflows</a>
+          <a href="#observability" className="nav-link" onClick={() => setOpen(false)}>Observability</a>
+          <a href="https://github.com/syntropic137/syntropic137" className="nav-github-btn" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+            <Github size={16} strokeWidth={2} />
+            <span>GitHub</span>
+          </a>
         </div>
       </div>
     </nav>

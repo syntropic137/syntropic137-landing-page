@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import InstallCmd from "./InstallCmd";
 import TextShimmer from "./TextShimmer";
-import { ArrowRight, Github } from "lucide-react";
+import { ArrowRight, Github, Clipboard, Check, Scale } from "lucide-react";
 
 function useStaggerReveal(count: number, baseDelay = 0, stagger = 150) {
   const ref = useRef<HTMLDivElement>(null);
@@ -84,10 +83,47 @@ function useVideoToStill() {
   return { videoRef, posterSrc, handleEnded };
 }
 
+function CopyableLine({ line }: { line: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(line);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  return (
+    <div className="terminal-line" onClick={handleCopy} role="button" tabIndex={0}>
+      <code className="terminal-line-text">
+        <span className="syn-punctuation">$ </span>
+        <span className="syn-function">{line}</span>
+      </code>
+      {copied ? (
+        <span className="terminal-copied-tooltip">Copied!</span>
+      ) : (
+        <Clipboard size={12} className="terminal-line-icon" />
+      )}
+    </div>
+  );
+}
+
+const installLines = [
+  "claude plugin marketplace add syntropic137/syntropic137-claude-plugin",
+  "claude plugin install syntropic137",
+  "/syn-setup",
+];
+
 export default function Hero() {
   const hero = useStaggerReveal(7, 100, 150);
   const defs = useStaggerReveal(3, 200, 200);
   const { videoRef, posterSrc, handleEnded } = useVideoToStill();
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(installLines.join("\n"));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <section className="hero-section" ref={hero.ref}>
@@ -98,7 +134,12 @@ export default function Hero() {
       <div className="container hero">
         <div className="hero-text">
           <div style={hero.getStyle(0)}>
-            <span className="hero-eyebrow">Open Source Agentic Engineering</span>
+            <span className="hero-eyebrow">
+              <Scale size={12} />
+              <span>MIT</span>
+              <span className="eyebrow-sep" aria-hidden="true" />
+              <span>Agentic Engineering Platform</span>
+            </span>
           </div>
 
           <h1 style={hero.getStyle(1)}>
@@ -112,23 +153,44 @@ export default function Hero() {
             </TextShimmer>
           </p>
 
-          <div style={hero.getStyle(3)}>
-            <InstallCmd />
+          <p className="hero-description" style={hero.getStyle(2)}>
+            Event-sourced <strong>agentic engineering platform</strong> using{" "}
+            <span className="claude">Claude Code</span> as a primitive. Through{" "}
+            <strong>repeatable workflows</strong>, every tool call, token, cost,
+            conversation, and artifact is captured for analytics and learning.
+          </p>
+
+          <div className="hero-install glass" style={hero.getStyle(3)}>
+            <div className="hero-install-header">
+              <span className="code-filename">terminal</span>
+              <button
+                className="install-copy"
+                onClick={handleCopy}
+                aria-label="Copy install commands"
+              >
+                {copied ? <Check size={14} /> : <Clipboard size={14} />}
+              </button>
+            </div>
+            <div className="hero-install-code">
+              {installLines.map((line, i) => (
+                <CopyableLine key={i} line={line} />
+              ))}
+            </div>
           </div>
 
           <div className="hero-ctas" style={hero.getStyle(4)}>
-            <a href="#create-agent" className="btn-primary">
-              <span>Get Started</span>
-              <ArrowRight size={16} strokeWidth={2} />
-            </a>
             <a
-              href="https://github.com/Syntropic137"
-              className="btn-ghost"
+              href="https://github.com/syntropic137/syntropic137"
+              className="btn-primary"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Github size={16} strokeWidth={2} />
               <span>View on GitHub</span>
+            </a>
+            <a href="#features" className="btn-ghost">
+              <span>Learn More</span>
+              <ArrowRight size={16} strokeWidth={2} />
             </a>
           </div>
         </div>

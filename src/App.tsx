@@ -1,8 +1,11 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import WhySyntropic from "./components/WhySyntropic";
-import CreateAgent from "./components/CreateAgent";
-import Architecture from "./components/Architecture";
+import HowItWorks from "./components/HowItWorks";
+import GitHubTriggers from "./components/GitHubTriggers";
+import Observability from "./components/Observability";
+import Security from "./components/Security";
+import GetStarted from "./components/GetStarted";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -15,9 +18,15 @@ export default function App() {
         <hr className="section-divider" />
         <WhySyntropic />
         <hr className="section-divider" />
-        <CreateAgent />
+        <HowItWorks />
         <hr className="section-divider" />
-        <Architecture />
+        <Observability />
+        <hr className="section-divider" />
+        <GitHubTriggers />
+        <hr className="section-divider" />
+        <Security />
+        <hr className="section-divider" />
+        <GetStarted />
       </main>
       <Footer />
     </>
