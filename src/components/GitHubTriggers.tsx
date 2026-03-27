@@ -1,3 +1,4 @@
+import { CheckCircle2, GitPullRequest, MessageSquare } from "lucide-react";
 import FadeIn from "./FadeIn";
 
 const triggerLines = [
@@ -14,6 +15,33 @@ const triggerLines = [
   { num: 11, content: <><span className="syn-punctuation">    </span><span className="syn-property">--workflow</span> <span className="syn-string">code-review</span></> },
   { num: 12, content: null },
   { num: 13, content: <span className="syn-comment"># PR opened → Claude Code reviews it in minutes</span> },
+];
+
+const triggers = [
+  {
+    icon: CheckCircle2,
+    label: "CI Check",
+    event: "check_run.completed",
+    action: "Self-healing CI: auto-fix and open PR",
+    color: "#34d399",
+    bg: "rgba(52, 211, 153, 0.12)",
+  },
+  {
+    icon: GitPullRequest,
+    label: "Pull Request",
+    event: "pull_request.opened",
+    action: "Automated code review in minutes",
+    color: "#4D80FF",
+    bg: "rgba(77, 128, 255, 0.12)",
+  },
+  {
+    icon: MessageSquare,
+    label: "Issue Comment",
+    event: "issue_comment.created",
+    action: "Auto-respond to review comments",
+    color: "#a78bfa",
+    bg: "rgba(167, 139, 250, 0.12)",
+  },
 ];
 
 export default function GitHubTriggers() {
@@ -48,21 +76,26 @@ export default function GitHubTriggers() {
             </div>
           </div>
           <div className="triggers-examples">
-            <div className="trigger-card glass">
-              <span className="trigger-event">check_run.completed</span>
-              <span className="trigger-arrow">→</span>
-              <span className="trigger-action">Self-healing CI: auto-fix and open PR</span>
-            </div>
-            <div className="trigger-card glass">
-              <span className="trigger-event">pull_request.opened</span>
-              <span className="trigger-arrow">→</span>
-              <span className="trigger-action">Automated code review in minutes</span>
-            </div>
-            <div className="trigger-card glass">
-              <span className="trigger-event">issue_comment.created</span>
-              <span className="trigger-arrow">→</span>
-              <span className="trigger-action">Auto-respond to review comments</span>
-            </div>
+            {triggers.map((t) => (
+              <div
+                key={t.event}
+                className="glass trigger-card-v2"
+                style={{
+                  "--trigger-color": t.color,
+                  "--trigger-bg": t.bg,
+                } as React.CSSProperties}
+              >
+                <div className="trigger-icon-chip">
+                  <t.icon size={18} strokeWidth={1.75} />
+                </div>
+                <div className="trigger-event-col">
+                  <span className="trigger-label">{t.label}</span>
+                  <span className="trigger-event">{t.event}</span>
+                </div>
+                <span className="trigger-arrow">→</span>
+                <span className="trigger-action">{t.action}</span>
+              </div>
+            ))}
           </div>
         </FadeIn>
       </div>

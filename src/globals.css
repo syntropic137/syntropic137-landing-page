@@ -223,8 +223,12 @@ img, video {
 }
 
 .claude {
-  color: var(--color-claude);
+  background: linear-gradient(120deg, #DA7756 0%, #f97316 55%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: var(--weight-semibold);
+  filter: drop-shadow(0 0 10px rgba(218, 119, 86, 0.4));
 }
 
 /* ── Glass Panel ── */
@@ -855,6 +859,100 @@ img, video {
   line-height: 1.65;
 }
 
+/* ── Card: Accented top-border (WhySyntropic) ── */
+.card-accented {
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid var(--card-accent, var(--color-accent-primary));
+}
+
+.card-accented .card-icon {
+  color: var(--card-accent, var(--color-accent-secondary));
+}
+
+.card-accented:hover .card-icon {
+  color: var(--card-accent, var(--color-accent-primary));
+  filter: brightness(1.15);
+}
+
+.card-num {
+  position: absolute;
+  top: -6px;
+  right: var(--space-lg);
+  font-size: 96px;
+  font-weight: 800;
+  color: var(--card-accent, var(--color-accent-primary));
+  opacity: 0.07;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+  transition: opacity 0.25s ease-out;
+}
+
+.card-accented:hover .card-num {
+  opacity: 0.12;
+}
+
+/* ── Card: Horizontal icon-chip (Observability) ── */
+.card-horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  padding: var(--space-xl) var(--card-padding);
+}
+
+.card-horizontal .card-title {
+  margin-top: 2px;
+}
+
+.card-icon-chip {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--icon-bg);
+  color: var(--icon-color);
+  transition: all 0.25s ease-out;
+}
+
+.card-horizontal:hover .card-icon-chip {
+  filter: brightness(1.15);
+}
+
+/* ── Card: Security ring (Security) ── */
+.card-security {
+  text-align: center;
+}
+
+.card-security .card-title,
+.card-security .card-desc {
+  text-align: center;
+}
+
+.security-icon-ring {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 1.5px solid var(--icon-color, var(--color-accent-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-color, var(--color-accent-primary));
+  margin: 0 auto var(--space-lg);
+  background: var(--icon-bg);
+  transition: all 0.25s ease-out;
+}
+
+.card-security:hover .security-icon-ring {
+  background: var(--icon-bg-hover);
+  box-shadow: 0 0 28px var(--icon-glow);
+}
+
 /* ── Code Editor ── */
 .code-editor {
   max-width: 800px;
@@ -931,10 +1029,30 @@ img, video {
   min-width: 180px;
 }
 
+.arch-node-accented {
+  border-top: 2px solid var(--step-color, var(--color-accent-primary));
+  transition: border-color 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+
+.arch-node-accented:hover {
+  box-shadow: 0 0 20px color-mix(in srgb, var(--step-color) 15%, transparent);
+}
+
+.arch-step-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--step-color);
+  opacity: 0.75;
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
 .arch-icon {
   width: 32px;
   height: 32px;
-  color: var(--color-accent-secondary);
+  color: var(--step-color, var(--color-accent-secondary));
   margin-inline: auto;
   margin-bottom: var(--space-sm);
 }
@@ -1031,6 +1149,56 @@ img, video {
   align-items: center;
   gap: var(--space-md);
   padding: var(--space-md) var(--space-lg);
+}
+
+.trigger-card-v2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-left: 2px solid var(--trigger-color, var(--color-accent-primary));
+  transition:
+    border-color 0.25s ease-out,
+    box-shadow 0.25s ease-out,
+    transform 0.25s ease-out;
+}
+
+.trigger-card-v2:hover {
+  transform: translateX(2px);
+  box-shadow: -4px 0 16px color-mix(in srgb, var(--trigger-color) 20%, transparent);
+}
+
+.trigger-icon-chip {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--trigger-bg);
+  color: var(--trigger-color);
+  transition: filter 0.2s ease-out;
+}
+
+.trigger-card-v2:hover .trigger-icon-chip {
+  filter: brightness(1.2);
+}
+
+.trigger-event-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.trigger-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--trigger-color);
+  opacity: 0.7;
 }
 
 .trigger-event {

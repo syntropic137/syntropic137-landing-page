@@ -5,16 +5,28 @@ const cards = [
   {
     icon: Shield,
     title: "Isolated by Default",
+    iconColor: "#34d399",
+    iconBg: "rgba(52, 211, 153, 0.08)",
+    iconBgHover: "rgba(52, 211, 153, 0.16)",
+    iconGlow: "rgba(52, 211, 153, 0.28)",
     desc: "Every agent runs in an ephemeral Docker container. API keys are never exposed to workspaces. Egress proxies control outbound traffic. Read-only filesystems. No new privileges. Supply chain signed with cosign.",
   },
   {
     icon: Server,
     title: "Built to Recover",
+    iconColor: "#10b981",
+    iconBg: "rgba(16, 185, 129, 0.08)",
+    iconBgHover: "rgba(16, 185, 129, 0.16)",
+    iconGlow: "rgba(16, 185, 129, 0.28)",
     desc: "Event-sourced state survives crashes. Idempotent handlers replay safely. Single-machine Docker Compose deployment — no Kubernetes required.",
   },
   {
     icon: Globe,
     title: "Accessible from Anywhere",
+    iconColor: "#6ee7b7",
+    iconBg: "rgba(110, 231, 183, 0.08)",
+    iconBgHover: "rgba(110, 231, 183, 0.16)",
+    iconGlow: "rgba(110, 231, 183, 0.28)",
     desc: "Built-in Cloudflare Tunnel support — easily receive GitHub webhooks and access your system from anywhere without exposing ports or managing DNS.",
   },
 ];
@@ -32,8 +44,18 @@ export default function Security() {
         <div className="cards-grid">
           {cards.map((card) => (
             <FadeIn key={card.title}>
-              <div className="card glass">
-                <card.icon className="card-icon" size={40} strokeWidth={1.5} />
+              <div
+                className="card glass card-security"
+                style={{
+                  "--icon-color": card.iconColor,
+                  "--icon-bg": card.iconBg,
+                  "--icon-bg-hover": card.iconBgHover,
+                  "--icon-glow": card.iconGlow,
+                } as React.CSSProperties}
+              >
+                <div className="security-icon-ring">
+                  <card.icon size={28} strokeWidth={1.5} />
+                </div>
                 <h3 className="card-title">{card.title}</h3>
                 <p className="card-desc">{card.desc}</p>
               </div>

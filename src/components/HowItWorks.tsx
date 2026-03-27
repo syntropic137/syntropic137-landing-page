@@ -2,10 +2,10 @@ import { Search, FileText, Code2, MessageSquareText, ArrowRight } from "lucide-r
 import FadeIn from "./FadeIn";
 
 const phases = [
-  { icon: Search, title: "Research", subtitle: "/research $ARGUMENTS" },
-  { icon: FileText, title: "Plan", subtitle: "/plan $ARGUMENTS" },
-  { icon: Code2, title: "Implement", subtitle: "/implement $ARGUMENTS" },
-  { icon: MessageSquareText, title: "Review", subtitle: "/review $ARGUMENTS" },
+  { icon: Search,            title: "Research",   subtitle: "/research $ARGUMENTS",  stepNum: "01", stepColor: "#4D80FF" },
+  { icon: FileText,          title: "Plan",        subtitle: "/plan $ARGUMENTS",       stepNum: "02", stepColor: "#a78bfa" },
+  { icon: Code2,             title: "Implement",   subtitle: "/implement $ARGUMENTS",  stepNum: "03", stepColor: "#34d399" },
+  { icon: MessageSquareText, title: "Review",      subtitle: "/review $ARGUMENTS",     stepNum: "04", stepColor: "#f59e0b" },
 ];
 
 export default function HowItWorks() {
@@ -23,7 +23,11 @@ export default function HowItWorks() {
           <div className="arch-flow">
             {phases.map((phase, i) => (
               <div key={phase.title} className="arch-step">
-                <div className="arch-node glass">
+                <div
+                  className="arch-node glass arch-node-accented"
+                  style={{ "--step-color": phase.stepColor } as React.CSSProperties}
+                >
+                  <div className="arch-step-num">{phase.stepNum}</div>
                   <phase.icon className="arch-icon" size={32} strokeWidth={1.5} />
                   <div className="arch-title">{phase.title}</div>
                   <div className="arch-subtitle">
