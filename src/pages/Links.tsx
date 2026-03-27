@@ -1,4 +1,4 @@
-import { Github, MessageSquare, Lightbulb, BookOpen, Link as LinkIcon, Scale } from "lucide-react";
+import { Github, MessageSquare, Lightbulb, BookOpen, Link as LinkIcon, Scale, Mail } from "lucide-react";
 
 const XIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -42,6 +42,12 @@ const links = [
     title: "Syntropic137 Landing Page",
     desc: "syntropic137.com",
     href: "/",
+  },
+  {
+    icon: Mail,
+    title: "Email",
+    desc: "hello@syntropic137.com",
+    href: "mailto:hello@syntropic137.com",
   },
 ];
 
