@@ -14,10 +14,10 @@ const links = [
     href: "https://github.com/syntropic137/syntropic137",
   },
   {
-    icon: XIcon,
-    title: "@syntropic137",
-    desc: "Updates & announcements",
-    href: "https://x.com/syntropic137",
+    icon: Lightbulb,
+    title: "Request a Feature",
+    desc: "Vote & suggest on Canny",
+    href: "https://syntropic137.canny.io/",
   },
   {
     icon: MessageSquare,
@@ -26,10 +26,10 @@ const links = [
     href: "https://github.com/syntropic137/syntropic137/discussions",
   },
   {
-    icon: Lightbulb,
-    title: "Request a Feature",
-    desc: "Vote & suggest on Canny",
-    href: "https://syntropic137.canny.io/",
+    icon: XIcon,
+    title: "@syntropic137",
+    desc: "Updates & announcements",
+    href: "https://x.com/syntropic137",
   },
   {
     icon: BookOpen,
