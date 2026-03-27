@@ -19,7 +19,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       # OSV checks package-lock.json against the OSV database (npm, PyPI, crates.io, Go, Maven).
       # continue-on-error during rollout — flip to false after first clean baseline.
       - uses: google/osv-scanner-action/osv-scanner-action@c51854704019a247608d928f370c98740469d4b5 # v2.3.5
@@ -38,7 +38,7 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       # Blocks PRs that introduce newly vulnerable packages. Free for public repos.
       - uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4.9.0
 
@@ -48,7 +48,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       # npm audit checks against the npm advisory database.
       # --omit=dev: only audit production dependencies.
       # --audit-level=moderate: fail on moderate+ severity.
@@ -62,7 +62,7 @@ jobs:
       contents: read
       security-events: write # Required to upload SARIF results
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       # CodeQL: GitHub-native SAST, free for public repos.
       # Finds XSS, injection, path traversal, insecure deserialization, etc.
       - uses: github/codeql-action/init@f94817b9f0deeb3871261446912ae8f854d1b675 # codeql-bundle-v2.25.1
@@ -78,7 +78,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0 # Full history — scan all commits, not just HEAD
       # gitleaks CLI: scans git history for accidentally committed secrets.
