@@ -29,7 +29,7 @@ const links = [
     icon: Lightbulb,
     title: "Request a Feature",
     desc: "Vote & suggest on Canny",
-    href: "#",
+    href: "https://syntropic137.canny.io/",
   },
   {
     icon: BookOpen,
