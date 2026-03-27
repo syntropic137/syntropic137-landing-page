@@ -23,7 +23,7 @@ const links = [
     icon: MessageSquare,
     title: "GitHub Discussions",
     desc: "Questions & community help",
-    href: "#",
+    href: "https://github.com/syntropic137/syntropic137/discussions",
   },
   {
     icon: Lightbulb,
