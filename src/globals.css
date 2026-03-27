@@ -1698,6 +1698,20 @@ img, video {
     flex-wrap: wrap;
   }
 
+  .trigger-card-v2 {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .trigger-card-v2 .trigger-arrow {
+    display: none;
+  }
+
+  .trigger-card-v2 .trigger-action {
+    width: 100%;
+    padding-left: calc(36px + var(--space-sm));
+  }
+
   .trigger-action {
     width: 100%;
   }
