@@ -61,6 +61,7 @@ Ready-to-paste `:root` block. Drop this into your global CSS.
   /* ── Typography ── */
   --font-sans:              system-ui, 'Inter', -apple-system, sans-serif;
   --font-mono:              'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  --font-orbitron:          'Orbitron', var(--font-sans);
 
   --text-h1:                clamp(36px, 5vw, 56px);
   --text-h2:                clamp(28px, 3.5vw, 36px);
@@ -161,11 +162,26 @@ body        { font-family: var(--font-sans); }
 code, pre   { font-family: var(--font-mono); }
 ```
 
+**Orbitron** (`--font-orbitron`) is the display face. Used on: hero h1, nav brand, footer name, section/page brand labels. Load via Google Fonts:
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+```
+
+| Element | Font | Weight |
+|---|---|---|
+| **Hero h1** | `--font-orbitron` | 700 |
+| **Nav brand** | `--font-orbitron` | 700 |
+| **Footer name** | `--font-orbitron` | 700 |
+| **Section brand labels** | `--font-orbitron` | 700 |
+| **Body / UI** | `--font-sans` | 400–700 |
+| **Code / mono** | `--font-mono` | 400–500 |
+
 ### Scale
 
 | Element | Size | Weight | Color | Notes |
 |---|---|---|---|---|
-| **h1 (Hero)** | 48–56px (mobile: 36px) | 700 | `--color-text-primary` | Accent word "dead." in `--color-text-accent` |
+| **h1 (Hero)** | 48–56px (mobile: 36px) | 700 | `--color-text-primary` | Orbitron face; accent word "dead." in `--color-text-accent` |
 | **h2 (Section)** | 32–36px (mobile: 28px) | 600 | Mixed | e.g. "Why" in primary + "Syntropic" in accent |
 | **Card title** | 18–20px | 600 | `--color-text-primary` | |
 | **Body** | 15–16px | 400 | `--color-text-secondary` | line-height: 1.6 |
@@ -179,7 +195,7 @@ code, pre   { font-family: var(--font-mono); }
 Headlines use a two-tone pattern. Wrap accent words in a `<span>`:
 
 ```html
-<h1>Agents shouldn't be <span class="accent">dead.</span></h1>
+<h1>IDEs are <span class="accent">dead.</span></h1>
 <h2>Why <span class="accent">Syntropic?</span></h2>
 ```
 
