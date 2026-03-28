@@ -371,6 +371,7 @@ img, video {
   color: var(--color-text-accent);
   letter-spacing: 0.05em;
   cursor: pointer;
+  text-decoration: none;
   transition: color 0.2s ease-out;
 }
 

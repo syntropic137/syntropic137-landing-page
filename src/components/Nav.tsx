@@ -14,7 +14,7 @@ export default function Nav() {
     <nav className="nav" aria-label="Main navigation">
       <div className="container nav-inner">
         <div className="nav-left">
-          <span className="nav-brand">Syntropic137</span>
+          <a href="/" className="nav-brand">Syntropic137</a>
           <span className="nav-tagline">Agentic Engineering</span>
         </div>
         <div className="nav-right">
