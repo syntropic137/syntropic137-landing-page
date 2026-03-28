@@ -62,7 +62,7 @@ export default function Links() {
     <div className="links-page">
       <div className="links-container">
         <div className="links-header">
-          <span className="links-brand">Syntropic137</span>
+          <a href="/" className="links-brand">Syntropic137</a>
           <div style={{ marginTop: '12px' }}>
             <span className="hero-eyebrow">
               <Scale size={12} /> MIT <span className="eyebrow-sep" aria-hidden="true" /> Agentic Engineering Platform

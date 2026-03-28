@@ -1373,6 +1373,11 @@ img, video {
   font-weight: var(--weight-bold);
   color: var(--color-text-primary);
   letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.links-brand:hover {
+  color: var(--color-accent);
 }
 
 .links-list {
