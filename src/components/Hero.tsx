@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import TextShimmer from "./TextShimmer";
-import { ArrowRight, Clipboard, Check, Scale } from "lucide-react";
+import InstallTerminal from "./InstallTerminal";
+import { ArrowRight, Scale } from "lucide-react";
 
 const GitHubIcon = ({ size = 16 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -89,47 +90,10 @@ function useVideoToStill() {
   return { videoRef, posterSrc, handleEnded };
 }
 
-function CopyableLine({ line }: { line: string }) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(line);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
-
-  return (
-    <div className="terminal-line" onClick={handleCopy} role="button" tabIndex={0}>
-      <code className="terminal-line-text">
-        <span className="syn-punctuation">$ </span>
-        <span className="syn-function">{line}</span>
-      </code>
-      {copied ? (
-        <span className="terminal-copied-tooltip">Copied!</span>
-      ) : (
-        <Clipboard size={12} className="terminal-line-icon" />
-      )}
-    </div>
-  );
-}
-
-const installLines = [
-  "claude plugin marketplace add syntropic137/syntropic137-claude-plugin",
-  "claude plugin install syntropic137",
-  "/syn-setup",
-];
-
 export default function Hero() {
   const hero = useStaggerReveal(7, 100, 150);
   const defs = useStaggerReveal(3, 200, 200);
   const { videoRef, posterSrc, handleEnded } = useVideoToStill();
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(installLines.join("\n"));
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   return (
     <section className="hero-section" ref={hero.ref}>
@@ -166,23 +130,7 @@ export default function Hero() {
             conversation, and artifact is captured for analytics and learning.
           </p>
 
-          <div className="hero-install glass" style={hero.getStyle(3)}>
-            <div className="hero-install-header">
-              <span className="code-filename">terminal</span>
-              <button
-                className="install-copy"
-                onClick={handleCopy}
-                aria-label="Copy install commands"
-              >
-                {copied ? <Check size={14} /> : <Clipboard size={14} />}
-              </button>
-            </div>
-            <div className="hero-install-code">
-              {installLines.map((line, i) => (
-                <CopyableLine key={i} line={line} />
-              ))}
-            </div>
-          </div>
+          <InstallTerminal className="hero-install" style={hero.getStyle(3)} />
 
           <div className="hero-ctas" style={hero.getStyle(4)}>
             <a

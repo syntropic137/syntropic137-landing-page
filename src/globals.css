@@ -568,10 +568,26 @@ img, video {
   margin-top: var(--space-md);
 }
 
+.install-terminal {
+  overflow: visible;
+  border-radius: 12px;
+}
+
+.install-terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.install-terminal > .terminal-line {
+  padding: var(--space-sm) var(--space-lg);
+}
+
 .hero-install {
   max-width: 680px;
   margin-top: var(--space-lg);
-  overflow: hidden;
 }
 
 .hero-install-header {
@@ -1365,6 +1381,10 @@ img, video {
 
 .links-header {
   text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.links-install {
   margin-bottom: var(--space-xl);
 }
 

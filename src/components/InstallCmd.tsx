@@ -3,7 +3,7 @@ import { Clipboard, Check } from "lucide-react";
 
 export default function InstallCmd() {
   const [copied, setCopied] = useState(false);
-  const command = "claude plugin install syntropic137";
+  const command = "npx @syntropic137/setup";
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(command);

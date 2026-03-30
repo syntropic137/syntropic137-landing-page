@@ -1,4 +1,5 @@
 import { MessageSquare, Lightbulb, BookOpen, Link as LinkIcon, Scale, Mail } from "lucide-react";
+import InstallTerminal from "../components/InstallTerminal";
 
 const GitHubIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -69,6 +70,7 @@ export default function Links() {
             </span>
           </div>
         </div>
+        <InstallTerminal showHeader={false} className="links-install" />
         <div className="links-list">
           {links.map((link) => (
             <a
