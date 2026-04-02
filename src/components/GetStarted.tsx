@@ -31,7 +31,7 @@ export default function GetStarted() {
               <GitHubIcon size={16} />
               <span>View on GitHub</span>
             </a>
-            <a href="#" className="btn-ghost">
+            <a href="https://docs.syntropic137.com" className="btn-ghost" target="_blank" rel="noopener noreferrer">
               <span>Read the Docs</span>
               <ArrowRight size={16} strokeWidth={2} />
             </a>
