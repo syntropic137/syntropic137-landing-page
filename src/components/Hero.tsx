@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import TextShimmer from "./TextShimmer";
 import InstallTerminal from "./InstallTerminal";
-import { ArrowRight, Scale } from "lucide-react";
+import { ArrowRight, BookOpen, Scale } from "lucide-react";
 
 const GitHubIcon = ({ size = 16 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -142,9 +142,9 @@ export default function Hero() {
               <GitHubIcon size={16} />
               <span>View on GitHub</span>
             </a>
-            <a href="#features" className="btn-ghost">
-              <span>Learn More</span>
-              <ArrowRight size={16} strokeWidth={2} />
+            <a href="https://docs.syntropic137.com" className="btn-ghost" target="_blank" rel="noopener noreferrer">
+              <BookOpen size={16} strokeWidth={2} />
+              <span>Docs</span>
             </a>
           </div>
         </div>

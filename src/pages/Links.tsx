@@ -21,6 +21,12 @@ const links = [
     href: "https://github.com/syntropic137/syntropic137",
   },
   {
+    icon: BookOpen,
+    title: "Documentation",
+    desc: "docs.syntropic137.com",
+    href: "https://docs.syntropic137.com",
+  },
+  {
     icon: Lightbulb,
     title: "Request a Feature",
     desc: "Vote & suggest on Canny",
@@ -37,12 +43,6 @@ const links = [
     title: "@syntropic137",
     desc: "Updates & announcements",
     href: "https://x.com/syntropic137",
-  },
-  {
-    icon: BookOpen,
-    title: "Documentation",
-    desc: "Guides, references & API docs",
-    href: "#",
   },
   {
     icon: LinkIcon,

@@ -21,6 +21,7 @@ export default function Nav() {
           <a href="#features" className="nav-link">Features</a>
           <a href="#how-it-works" className="nav-link">Workflows</a>
           <a href="#observability" className="nav-link">Observability</a>
+          <a href="https://docs.syntropic137.com" className="nav-link" target="_blank" rel="noopener noreferrer">Docs</a>
           <a href="https://github.com/syntropic137/syntropic137" className="nav-github-btn" target="_blank" rel="noopener noreferrer">
             <GitHubIcon size={16} />
             <span>GitHub</span>
@@ -38,6 +39,7 @@ export default function Nav() {
           <a href="#features" className="nav-link" onClick={() => setOpen(false)}>Features</a>
           <a href="#how-it-works" className="nav-link" onClick={() => setOpen(false)}>Workflows</a>
           <a href="#observability" className="nav-link" onClick={() => setOpen(false)}>Observability</a>
+          <a href="https://docs.syntropic137.com" className="nav-link" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Docs</a>
           <a href="https://github.com/syntropic137/syntropic137" className="nav-github-btn" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
             <GitHubIcon size={16} />
             <span>GitHub</span>
