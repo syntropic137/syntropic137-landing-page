@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Pre-commit: reject AI-generated copy patterns in user-facing source files.
+# Zero dependencies. Checked into the repo so every contributor gets it.
+#
+# Activate once:  git config core.hooksPath .githooks
+
+set -euo pipefail
+
+STAGED=$(git diff --cached --name-only --diff-filter=ACM -- 'src/**/*.tsx' 'src/**/*.ts')
+
+if [ -z "$STAGED" ]; then
+  exit 0
+fi
+
+FAIL=0
+
+# --- Em dash check ---
+if echo "$STAGED" | xargs grep -n '—' 2>/dev/null; then
+  echo ""
+  echo "BLOCKED: Em dashes (—) found in staged files."
+  echo "Replace with a period, comma, or colon."
+  FAIL=1
+fi
+
+if [ "$FAIL" -ne 0 ]; then
+  echo ""
+  echo "Fix the above and re-stage before committing."
+  exit 1
+fi
