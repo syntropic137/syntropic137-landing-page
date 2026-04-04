@@ -18,7 +18,7 @@ const cards = [
     iconBg: "rgba(16, 185, 129, 0.08)",
     iconBgHover: "rgba(16, 185, 129, 0.16)",
     iconGlow: "rgba(16, 185, 129, 0.28)",
-    desc: "Event-sourced state survives crashes. Idempotent handlers replay safely. Single-machine Docker Compose deployment — no Kubernetes required.",
+    desc: "Event-sourced state survives crashes. Idempotent handlers replay safely. Single-machine Docker Compose deployment. No Kubernetes required.",
   },
   {
     icon: Globe,
@@ -27,7 +27,7 @@ const cards = [
     iconBg: "rgba(110, 231, 183, 0.08)",
     iconBgHover: "rgba(110, 231, 183, 0.16)",
     iconGlow: "rgba(110, 231, 183, 0.28)",
-    desc: "Built-in Cloudflare Tunnel support — easily receive GitHub webhooks and access your system from anywhere without exposing ports or managing DNS.",
+    desc: "Built-in Cloudflare Tunnel support. Receive GitHub webhooks and access your system from anywhere without exposing ports or managing DNS.",
   },
 ];
 

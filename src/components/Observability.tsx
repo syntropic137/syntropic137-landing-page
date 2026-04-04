@@ -7,7 +7,7 @@ const channels = [
     title: "Event-Sourced Domain Events",
     iconColor: "#8b5cf6",
     iconBg: "rgba(139, 92, 246, 0.12)",
-    desc: "Immutable log of every domain state change — workflows, artifacts, organizations. An immutable history of what was kicked off, what completed, and what failed.",
+    desc: "Immutable log of every domain state change: workflows, artifacts, organizations. What was kicked off, what completed, and what failed.",
   },
   {
     icon: Activity,
@@ -21,7 +21,7 @@ const channels = [
     title: "Conversation Logs",
     iconColor: "#c084fc",
     iconBg: "rgba(192, 132, 252, 0.12)",
-    desc: "Every conversation is automatically persisted to S3-compatible storage. Never lose track of agent reasoning, decisions, or context again — review any session from any workflow, anytime.",
+    desc: "Every conversation is automatically persisted to S3-compatible storage. Never lose track of agent reasoning, decisions, or context. Review any session from any workflow, anytime.",
   },
   {
     icon: GitCommit,
@@ -40,7 +40,7 @@ export default function Observability() {
           Immutable <span className="accent">Event Store</span>
         </h2>
         <p className="section-subtitle">
-          Multiple observability channels — all data is interactive, all data compounds
+          Multiple observability channels. All data is interactive, all data compounds.
         </p>
         <div className="cards-grid cards-grid--two">
           {channels.map((channel) => (
@@ -65,7 +65,7 @@ export default function Observability() {
         </div>
         <FadeIn>
           <p className="how-it-works-caption">
-            Analyze what agents do across sessions, workflows, repos, systems, and organizations. Data compounds — every run makes the next one smarter.
+            Analyze what agents do across sessions, workflows, repos, systems, and organizations. Data compounds. Every run makes the next one smarter.
           </p>
         </FadeIn>
       </div>

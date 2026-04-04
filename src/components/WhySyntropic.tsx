@@ -8,7 +8,7 @@ const cards = [
     href: "#how-it-works",
     num: "01",
     accent: "#4D80FF", // signature blue
-    desc: <>Multi-phase pipelines built on the <strong>Claude Code command standard</strong>. Research, plan, implement, review — every workflow runs the same way, every time.</>,
+    desc: <>Multi-phase pipelines built on the <strong>Claude Code command standard</strong>. Research, plan, implement, review. Every workflow runs the same way, every time.</>,
   },
   {
     icon: Database,
@@ -16,7 +16,7 @@ const cards = [
     href: "#observability",
     num: "02",
     accent: "#60a5fa",
-    desc: <>Every state change is a permanent, queryable event. Domain events, observability telemetry, and conversation logs — nothing is ever lost. Data compounds with every run.</>,
+    desc: <>Every state change is a permanent, queryable event. Domain events, observability telemetry, and conversation logs. Nothing is ever lost. Data compounds with every run.</>,
   },
   {
     icon: GitPullRequest,
@@ -24,7 +24,7 @@ const cards = [
     href: "#triggers",
     num: "03",
     accent: "#818cf8",
-    desc: <>Webhook triggers enable self-healing CI, auto-responses to review comments, and PR-driven workflows. Agents respond in minutes — developers stay out of the loop.</>,
+    desc: <>Webhook triggers enable self-healing CI, auto-responses to review comments, and PR-driven workflows. Agents respond in minutes. Developers stay out of the loop.</>,
   },
 ];
 

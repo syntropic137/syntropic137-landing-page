@@ -52,7 +52,7 @@ export default function GitHubTriggers() {
           <span className="accent">GitHub-Native</span> Triggers
         </h2>
         <p className="section-subtitle">
-          Webhook triggers kick off workflows automatically — developers stay out of the loop
+          Webhook triggers kick off workflows automatically. Developers stay out of the loop.
         </p>
         <FadeIn>
           <div className="code-editor glass">

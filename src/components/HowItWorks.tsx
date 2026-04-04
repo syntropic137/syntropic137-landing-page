@@ -43,7 +43,7 @@ export default function HowItWorks() {
             ))}
           </div>
           <p className="how-it-works-caption">
-            Each phase runs in an isolated Docker workspace. Output artifacts flow forward — research informs the plan, the plan drives implementation, implementation feeds review. The same workflow that runs once runs a thousand times.
+            Each phase runs in an isolated Docker workspace. Output artifacts flow forward: research informs the plan, the plan drives implementation, implementation feeds review. The same workflow that runs once runs a thousand times.
           </p>
         </FadeIn>
       </div>

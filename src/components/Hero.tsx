@@ -181,7 +181,7 @@ export default function Hero() {
             <p className="syntropic-label">Syntropic</p>
             <p className="syntropic-one-liner">Structure from entropy.</p>
             <p className="syntropic-note">
-              From <em>syntropy</em> — the tendency toward order and
+              From <em>syntropy</em>, the tendency toward order and
               complexity along energy gradients.
             </p>
           </div>
@@ -190,7 +190,7 @@ export default function Hero() {
             <p className="syntropic-label">137</p>
             <p className="syntropic-one-liner">The constant that makes it possible.</p>
             <p className="syntropic-note">
-              The fine-structure constant (~1/137) — governs how matter
+              The fine-structure constant (~1/137). Governs how matter
               and light interact.
             </p>
           </div>
