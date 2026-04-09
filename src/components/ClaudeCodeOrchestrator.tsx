@@ -28,7 +28,7 @@ const capabilities = [
         the dashboard.
       </>
     ),
-    commands: ["/syn-run <workflow-id>", "/syn-status"],
+    commands: ["/syn-run <workflow-id>", "/syn-triggers"],
   },
   {
     icon: BarChart2,
