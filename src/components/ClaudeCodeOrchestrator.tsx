@@ -14,7 +14,7 @@ const capabilities = [
         YAML config, then registers them with the platform.
       </>
     ),
-    commands: [],
+    commands: ["/syn-workflows", "/syn-marketplace"],
   },
   {
     icon: Play,
@@ -28,7 +28,7 @@ const capabilities = [
         the dashboard.
       </>
     ),
-    commands: ["/syn-status"],
+    commands: ["/syn-run <workflow-id>", "/syn-status"],
   },
   {
     icon: BarChart2,
@@ -76,11 +76,13 @@ export default function ClaudeCodeOrchestrator() {
                 <cap.icon className="card-icon" size={40} strokeWidth={1.5} />
                 <h3 className="card-title">{cap.title}</h3>
                 <p className="card-desc">{cap.desc}</p>
-                <div className="orc-commands">
-                  {cap.commands.map((cmd) => (
-                    <code key={cmd} className="phase-cmd orc-cmd">{cmd}</code>
-                  ))}
-                </div>
+                {cap.commands.length > 0 && (
+                  <div className="orc-commands">
+                    {cap.commands.map((cmd) => (
+                      <code key={cmd} className="phase-cmd orc-cmd">{cmd}</code>
+                    ))}
+                  </div>
+                )}
               </div>
             </FadeIn>
           ))}

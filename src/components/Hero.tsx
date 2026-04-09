@@ -125,7 +125,7 @@ export default function Hero() {
 
           <p className="hero-description" style={hero.getStyle(2)}>
             Running 10 parallel <span className="claude">Claude Code</span>{" "}
-            agents in terminal is about as far as you can go before it becomes
+            agents in a terminal is about as far as you can go before it becomes
             unmanageable. <span className="syntropic-brand">Syntropic137</span> scales that to 100+ with{" "}
             <strong>workflow orchestration</strong>, full observability on every
             tool call and conversation, model routing across Haiku/Sonnet/Opus,
