@@ -58,7 +58,7 @@ export default function ClaudeCodeOrchestrator() {
             href="https://github.com/syntropic137/syntropic137-claude-plugin"
             target="_blank"
             rel="noopener noreferrer"
-            className="subtitle-link"
+            className="syntropic-brand syntropic-brand--link"
           >
             Syntropic137 plugin
           </a>{" "}

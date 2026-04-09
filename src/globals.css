@@ -231,6 +231,16 @@ img, video {
   filter: drop-shadow(0 0 10px rgba(218, 119, 86, 0.4));
 }
 
+.syntropic-brand--link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(251, 191, 36, 0.45);
+  transition: text-decoration-color 0.2s ease;
+}
+.syntropic-brand--link:hover {
+  text-decoration-color: #fbbf24;
+}
+
 .syntropic-brand {
   background: linear-gradient(120deg, #fbbf24 0%, #fde047 50%, #fef9c3 100%);
   -webkit-background-clip: text;
