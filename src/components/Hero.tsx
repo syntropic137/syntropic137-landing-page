@@ -124,10 +124,13 @@ export default function Hero() {
           </p>
 
           <p className="hero-description" style={hero.getStyle(2)}>
-            Event-sourced <strong>agentic engineering platform</strong> using{" "}
-            <span className="claude">Claude Code</span> as a primitive. Through{" "}
-            <strong>repeatable workflows</strong>, every tool call, token, cost,
-            conversation, and artifact is captured for analytics and learning.
+            Running 10 parallel <span className="claude">Claude Code</span>{" "}
+            agents in a terminal is about as far as you can go before it becomes
+            unmanageable. <span className="syntropic-brand">Syntropic137</span> scales that to 100+ with{" "}
+            <strong>workflow orchestration</strong>, full observability on every
+            tool call and conversation, model routing across Haiku/Sonnet/Opus,
+            and a self-hosted <strong>workflow marketplace</strong>. Your data
+            stays yours.
           </p>
 
           <InstallTerminal className="hero-install" style={hero.getStyle(3)} />

@@ -231,6 +231,25 @@ img, video {
   filter: drop-shadow(0 0 10px rgba(218, 119, 86, 0.4));
 }
 
+.syntropic-brand--link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(251, 191, 36, 0.45);
+  transition: text-decoration-color 0.2s ease;
+}
+.syntropic-brand--link:hover {
+  text-decoration-color: #fbbf24;
+}
+
+.syntropic-brand {
+  background: linear-gradient(120deg, #fbbf24 0%, #fde047 50%, #fef9c3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: var(--weight-semibold);
+  filter: drop-shadow(0 0 14px rgba(253, 224, 71, 0.65));
+}
+
 /* ── Glass Panel ── */
 .glass {
   background: rgba(15, 15, 26, 0.85);
@@ -1147,6 +1166,30 @@ img, video {
 .phase-cmd {
   font-family: var(--font-mono);
   font-size: var(--text-code);
+  color: var(--color-text-secondary);
+}
+
+/* ── Claude Code Orchestrator ── */
+#orchestrator .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.orc-commands {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: var(--space-md);
+  min-height: 58px;
+}
+
+.orc-cmd {
+  display: block;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 4px 8px;
   color: var(--color-text-secondary);
 }
 
