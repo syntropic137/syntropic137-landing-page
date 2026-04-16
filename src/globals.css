@@ -405,10 +405,6 @@ img, video {
   margin-left: var(--space-xs);
 }
 
-.nav-tagline::before {
-  content: "\00b7\00a0";
-}
-
 .nav-right {
   display: flex;
   align-items: center;
