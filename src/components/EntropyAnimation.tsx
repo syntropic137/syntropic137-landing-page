@@ -48,7 +48,7 @@ export default function EntropyAnimation() {
           particles.push({
             x: Math.random() * w,
             y: Math.random() * h,
-            // Random initial velocities — like gas molecules
+            // Random initial velocities, like gas molecules
             vx: (Math.random() - 0.5) * 3,
             vy: (Math.random() - 0.5) * 3,
             targetX: gx,

@@ -6,7 +6,10 @@
 
 set -euo pipefail
 
-STAGED=$(git diff --cached --name-only --diff-filter=ACM -- 'src/**/*.tsx' 'src/**/*.ts')
+STAGED=$(git diff --cached --name-only --diff-filter=ACM -- \
+  'src/**/*.tsx' 'src/**/*.ts' \
+  'index.html' \
+  'README.md')
 
 if [ -z "$STAGED" ]; then
   exit 0
