@@ -129,8 +129,7 @@ export default function Hero() {
             unmanageable. <span className="syntropic-brand">Syntropic137</span> scales that to 100+ with{" "}
             <strong>workflow orchestration</strong>, full observability on every
             tool call and conversation, model routing across Haiku/Sonnet/Opus,
-            and a self-hosted <strong>workflow marketplace</strong>. Your data
-            stays yours.
+            and a self-hosted <strong>workflow marketplace</strong>.
           </p>
 
           <InstallTerminal className="hero-install" style={hero.getStyle(3)} />
