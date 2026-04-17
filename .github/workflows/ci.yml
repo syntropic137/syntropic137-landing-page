@@ -16,6 +16,33 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  copy-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Check for em dashes in user-facing content
+        run: |
+          set -e
+          FAIL=0
+          # Matches literal U+2014 em dash and the CSS \2014 escape (with optional leading zeros).
+          PATTERN='—|\\0*2014'
+          if grep -rnE "$PATTERN" src/ --include='*.tsx' --include='*.ts' --include='*.css' 2>/dev/null; then
+            FAIL=1
+          fi
+          for f in index.html README.md; do
+            if [ -f "$f" ] && grep -HnE "$PATTERN" "$f" 2>/dev/null; then
+              FAIL=1
+            fi
+          done
+          if [ "$FAIL" -ne 0 ]; then
+            echo ""
+            echo "Em dashes found in user-facing files."
+            echo "Replace with period, comma, or colon (or \\00b7 middle dot in CSS). See copy-rules.md rule #19."
+            exit 1
+          fi
+          echo "No em dashes found."
+
   build:
     runs-on: ubuntu-latest
     steps:

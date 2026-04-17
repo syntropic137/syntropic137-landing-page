@@ -1,11 +1,11 @@
 # syntropic137-landing-page
 
-Landing page for [Syntropic137](https://syntropic137.com) — the agentic engineering platform.
+Landing page for [Syntropic137](https://syntropic137.com), the agentic engineering platform.
 
 ## Stack
 
 - **Vite** + **React 19** + **TypeScript**
-- Plain CSS (no framework) — design tokens in `src/globals.css`
+- Plain CSS (no framework). Design tokens in `src/globals.css`
 - Fonts: Orbitron (display), Inter (UI), JetBrains Mono (code)
 
 ## Local dev

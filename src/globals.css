@@ -405,10 +405,6 @@ img, video {
   margin-left: var(--space-xs);
 }
 
-.nav-tagline::before {
-  content: "\2014\00a0";
-}
-
 .nav-right {
   display: flex;
   align-items: center;
@@ -479,7 +475,7 @@ img, video {
   overflow: hidden;
 }
 
-/* Ambient glow orbs — soft halos behind hero */
+/* Ambient glow orbs, soft halos behind hero */
 .hero-glow {
   position: absolute;
   border-radius: 50%;
@@ -1541,7 +1537,7 @@ img, video {
   overflow: clip;
 }
 
-/* Rotating conic gradient — uses transform (GPU-composited, no repaints) */
+/* Rotating conic gradient, uses transform (GPU-composited, no repaints) */
 .hero-visual-glow::before {
   content: "";
   position: absolute;
