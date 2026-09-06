@@ -7,8 +7,8 @@
  * between them.
  *
  * Adding a harness should be an edit to this file, not a copy hunt through
- * components. Keep `control_plane` and `notes` honest: they are the difference
- * between a claim we can back and one we cannot.
+ * components. Keep `controlPlane` honest: it is the difference between a claim
+ * we can back and one we cannot.
  */
 
 export interface Harness {
