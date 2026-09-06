@@ -7,8 +7,13 @@
  * between them.
  *
  * Adding a harness should be an edit to this file, not a copy hunt through
- * components. Keep `controlPlane` honest: it is the difference between a claim
- * we can back and one we cannot.
+ * components. Hero and AgentControlPlane render their harness lists from
+ * HARNESSES, so a new entry appears in both without touching either. Prose that
+ * says something specific about ONE harness stays hand-written, because that
+ * claim does not generalise.
+ *
+ * Keep `controlPlane` honest: it is the difference between a claim we can back
+ * and one we cannot.
  */
 
 export interface Harness {

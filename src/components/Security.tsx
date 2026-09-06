@@ -9,7 +9,7 @@ const cards = [
     iconBg: "rgba(52, 211, 153, 0.08)",
     iconBgHover: "rgba(52, 211, 153, 0.16)",
     iconGlow: "rgba(52, 211, 153, 0.28)",
-    desc: "Every agent runs in an ephemeral Docker container. API keys are never exposed to workspaces. Egress proxies control outbound traffic. Read-only filesystems. No new privileges. Supply chain signed with cosign.",
+    desc: "Every agent runs in an ephemeral Docker container. A phase gets only its own harness credential, never your other secrets, and setup tokens are cleared before the agent starts. Egress proxies control outbound traffic. Read-only filesystems. No new privileges. Supply chain signed with cosign.",
   },
   {
     icon: Server,
