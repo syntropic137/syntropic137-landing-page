@@ -17,7 +17,7 @@ export default function HowItWorks() {
           <span className="accent">Commands</span>
         </h2>
         <p className="section-subtitle">
-          Built on the <strong>Claude Code</strong> <a href="https://docs.anthropic.com/en/docs/claude-code/slash-commands" target="_blank" rel="noopener noreferrer" className="subtitle-link">standards</a> you already know. Scale to <span className="text-green">100+ agents with Syntropic137</span>, <em>versus &lt;10 human-in-the-loop agentic IDEs.</em>
+          Prompt-and-command conventions you already know, running on <strong>Claude Code</strong> or <strong>Codex</strong>. Scale to <span className="text-green">100+ agents with Syntropic137</span>, <em>versus &lt;10 human-in-the-loop agentic IDEs.</em>
         </p>
         <FadeIn>
           <div className="arch-flow">

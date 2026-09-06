@@ -14,7 +14,7 @@ const channels = [
     title: "Observability Events",
     iconColor: "#a78bfa",
     iconBg: "rgba(167, 139, 250, 0.12)", // violet mid
-    desc: <>Token usage, tool traces, costs, and errors captured in real-time via <strong>Claude Code hooks</strong> and <strong>git hooks</strong>. See exactly what the agent did and why.</>,
+    desc: <>Token usage, tool traces, costs, and errors captured in real-time from the agent stream and <strong>git hooks</strong>. See exactly what the agent did and why. Claude Code phases add hook-level and subagent detail on top.</>,
   },
   {
     icon: MessageCircle,

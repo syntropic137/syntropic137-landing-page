@@ -2,7 +2,7 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import WhySyntropic from "./components/WhySyntropic";
 import HowItWorks from "./components/HowItWorks";
-import ClaudeCodeOrchestrator from "./components/ClaudeCodeOrchestrator";
+import AgentControlPlane from "./components/AgentControlPlane";
 import GitHubTriggers from "./components/GitHubTriggers";
 import Observability from "./components/Observability";
 import Security from "./components/Security";
@@ -21,7 +21,7 @@ export default function App() {
         <hr className="section-divider" />
         <HowItWorks />
         <hr className="section-divider" />
-        <ClaudeCodeOrchestrator />
+        <AgentControlPlane />
         <hr className="section-divider" />
         <Observability />
         <hr className="section-divider" />

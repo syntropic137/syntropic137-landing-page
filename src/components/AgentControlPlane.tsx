@@ -1,17 +1,18 @@
 import { PenLine, Play, BarChart2 } from "lucide-react";
 import FadeIn from "./FadeIn";
+import { HARNESSES } from "../data/harnesses";
 
 const capabilities = [
   {
     icon: PenLine,
     num: "01",
-    accent: "#DA7756",
+    accent: "#E08A5F",
     title: "Design Workflows",
     desc: (
       <>
-        Describe what you want to automate. Claude Code uses its built-in
-        workflow knowledge to create phase definitions, prompt templates, and
-        YAML config, then registers them with the platform.
+        Describe what you want to automate. The plugin turns it into phase
+        definitions, prompt templates, and YAML config, then registers them
+        with the platform. Each phase picks the harness that suits it.
       </>
     ),
     commands: ["/syn-workflows", "/syn-marketplace"],
@@ -24,8 +25,8 @@ const capabilities = [
     desc: (
       <>
         Kick off workflows, track execution status, and manage running agents.
-        Pause, resume, or cancel from inside Claude Code without touching
-        the dashboard.
+        Pause, resume, or cancel from your terminal without touching the
+        dashboard.
       </>
     ),
     commands: ["/syn-run <workflow-id>", "/syn-triggers"],
@@ -45,12 +46,12 @@ const capabilities = [
   },
 ];
 
-export default function ClaudeCodeOrchestrator() {
+export default function AgentControlPlane() {
   return (
     <section id="orchestrator" className="section">
       <div className="container">
         <h2 className="section-heading">
-          <span className="claude">Claude Code</span> as the Control Plane
+          Your Terminal as the <span className="accent">Control Plane</span>
         </h2>
         <p className="section-subtitle">
           The{" "}
@@ -63,7 +64,15 @@ export default function ClaudeCodeOrchestrator() {
             Syntropic137 plugin
           </a>{" "}
           gives Claude Code native knowledge of the platform. Design workflows,
-          run agents, and review outputs without leaving your terminal.
+          run agents, and review outputs without leaving your terminal. Phases
+          execute on{" "}
+          {HARNESSES.map((h, i) => (
+            <span key={h.id}>
+              {i > 0 && (i === HARNESSES.length - 1 ? " or " : ", ")}
+              <strong>{h.name}</strong>
+            </span>
+          ))}
+          , chosen per phase.
         </p>
         <div className="cards-grid">
           {capabilities.map((cap) => (
