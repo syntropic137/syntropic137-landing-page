@@ -597,7 +597,7 @@ Three nodes in a horizontal row with arrows between them.
   <div class="arch-node glass">
     <div class="arch-icon">🤖</div>
     <div class="arch-title">Agent</div>
-    <div class="arch-subtitle">Claude Code / Codex</div>
+    <div class="arch-subtitle">Claude Code / Codex (plugins are Claude-only)</div>
   </div>
   <div class="arch-arrow">→</div>
   <div class="arch-node glass">
