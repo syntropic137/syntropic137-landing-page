@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import TextShimmer from "./TextShimmer";
 import InstallTerminal from "./InstallTerminal";
 import { ArrowRight, BookOpen, Scale } from "lucide-react";
+import { HARNESSES } from "../data/harnesses";
 
 const GitHubIcon = ({ size = 16 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -124,12 +125,18 @@ export default function Hero() {
           </p>
 
           <p className="hero-description" style={hero.getStyle(2)}>
-            Running 10 parallel <span className="claude">Claude Code</span>{" "}
+            Running 10 parallel <span className="harness">Claude Code</span>{" "}
             agents in a terminal is about as far as you can go before it becomes
             unmanageable. <span className="syntropic-brand">Syntropic137</span> scales that to 100+ with{" "}
             <strong>workflow orchestration</strong>, full observability on every
-            tool call and conversation, model routing across Haiku/Sonnet/Opus,
-            and a self-hosted <strong>workflow marketplace</strong>.
+            tool call and conversation, per-phase routing across{" "}
+            {HARNESSES.map((h, i) => (
+              <span key={h.id}>
+                {i > 0 && (i === HARNESSES.length - 1 ? " and " : ", ")}
+                <span className="harness">{h.name}</span>
+              </span>
+            ))}
+            , and a self-hosted <strong>workflow marketplace</strong>.
           </p>
 
           <InstallTerminal className="hero-install" style={hero.getStyle(3)} />

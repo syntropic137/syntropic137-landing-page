@@ -8,7 +8,7 @@ const cards = [
     href: "#how-it-works",
     num: "01",
     accent: "#4D80FF", // signature blue
-    desc: <>Multi-phase pipelines built on the <strong>Claude Code command standard</strong>. Research, plan, implement, review. Every workflow runs the same way, every time.</>,
+    desc: <>Multi-phase pipelines defined as commands. Research, plan, implement, review. Every phase picks its own harness, Claude Code or Codex, and every workflow runs the same way, every time.</>,
   },
   {
     icon: Database,

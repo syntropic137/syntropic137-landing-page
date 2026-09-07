@@ -597,7 +597,7 @@ Three nodes in a horizontal row with arrows between them.
   <div class="arch-node glass">
     <div class="arch-icon">🤖</div>
     <div class="arch-title">Agent</div>
-    <div class="arch-subtitle">Claude / GPT / Local</div>
+    <div class="arch-subtitle">Claude Code / Codex (plugins are Claude-only)</div>
   </div>
   <div class="arch-arrow">→</div>
   <div class="arch-node glass">
@@ -732,7 +732,7 @@ Centered text section.
 }
 ```
 
-Content: "Built on Claude Code. Open-source integrations coming soon." + MIT badge.
+Content: "Runs Claude Code and Codex. More harnesses to come." + MIT badge.
 
 ### 7. Footer
 

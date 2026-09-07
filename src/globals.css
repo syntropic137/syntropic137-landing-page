@@ -16,7 +16,7 @@
   --color-text-primary:     #E6F2FF;
   --color-text-secondary:   rgba(230, 242, 255, 0.7);
   --color-text-accent:      #4D80FF;
-  --color-claude:           #DA7756;
+  --color-harness:          #E08A5F;
   --color-glow:             rgba(77, 128, 255, 0.2);
 
   /* ── Glass ── */
@@ -222,13 +222,13 @@ img, video {
   color: var(--color-text-accent);
 }
 
-.claude {
-  background: linear-gradient(120deg, #DA7756 0%, #f97316 55%, #f59e0b 100%);
+.harness {
+  background: linear-gradient(120deg, #E08A5F 0%, #f97316 55%, #f59e0b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: var(--weight-semibold);
-  filter: drop-shadow(0 0 10px rgba(218, 119, 86, 0.4));
+  filter: drop-shadow(0 0 10px rgba(224, 138, 95, 0.4));
 }
 
 .syntropic-brand--link {
@@ -1165,7 +1165,7 @@ img, video {
   color: var(--color-text-secondary);
 }
 
-/* ── Claude Code Orchestrator ── */
+/* ── Agent Control Plane ── */
 #orchestrator .card {
   display: flex;
   flex-direction: column;
@@ -1265,7 +1265,7 @@ img, video {
 }
 
 .trigger-arrow {
-  color: var(--color-claude);
+  color: var(--color-harness);
   font-weight: var(--weight-bold);
   flex-shrink: 0;
 }
