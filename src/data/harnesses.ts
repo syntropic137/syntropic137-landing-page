@@ -30,7 +30,10 @@ export interface Harness {
   name: string;
   /** Vendor, for the "works with" strip. */
   vendor: string;
-  /** True when the harness can also drive the platform, not just execute phases. */
+  /**
+   * True when the harness can also drive the platform, not just execute phases.
+   * The syntropic137-skills install for this harness via `skills add -a <agent>`.
+   */
   controlPlane: boolean;
   /**
    * Modifier class for the name's gradient, defined in globals.css.
@@ -52,7 +55,7 @@ export const HARNESSES: readonly Harness[] = [
     id: "codex",
     name: "Codex",
     vendor: "OpenAI",
-    controlPlane: false,
+    controlPlane: true,
     accentClass: "harness--codex",
   },
 ] as const;

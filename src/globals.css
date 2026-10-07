@@ -1233,6 +1233,20 @@ img, video {
   color: var(--color-text-secondary);
 }
 
+/* The install command is longer than a phone is wide; scroll, don't wrap. */
+.orc-skills-code {
+  padding: var(--space-md);
+  overflow-x: auto;
+}
+
+.orc-skills-note {
+  max-width: 780px;
+  margin: var(--space-md) auto 0;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 /* ── Trigger Cards ── */
 .triggers-examples {
   display: flex;
