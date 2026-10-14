@@ -52,7 +52,8 @@ export const HARNESSES: readonly Harness[] = [
     id: "codex",
     name: "Codex",
     vendor: "OpenAI",
-    controlPlane: false,
+    // The Syntropic137 agent skills install for Codex as well as Claude Code.
+    controlPlane: true,
     accentClass: "harness--codex",
   },
 ] as const;
