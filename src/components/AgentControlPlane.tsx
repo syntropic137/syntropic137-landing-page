@@ -97,7 +97,7 @@ export default function AgentControlPlane() {
                 <h3 className="card-title">{cap.title}</h3>
                 <p className="card-desc">{cap.desc}</p>
                 {cap.skills.length > 0 && (
-                  <div className="orc-commands" aria-label="Agent skills">
+                  <div className="orc-commands" role="group" aria-label="Agent skills">
                     {cap.skills.map((skill) => (
                       <code key={skill} className="phase-cmd orc-cmd">{skill}</code>
                     ))}
